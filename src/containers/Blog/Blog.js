@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, NavLink} from 'react-router-dom';
+import {Route, NavLink, Switch} from 'react-router-dom';
 import NewPost from './NewPost/NewPost'
 import Posts from './Posts/Posts';
 import FullPost from './FullPost/FullPost';
@@ -28,10 +28,14 @@ class Blog extends Component {
                     </nav>
                 </header>
                 {/*<Route exact path="/" render={() => <h1>Home</h1>}/>
-                <Route exact path="/" render={() => <h1>Home2</h1>}/>*/}
-                <Route path="/" exact component={Posts}/>
-                <Route path="/:id" component={FullPost}/>
-                <Route path="/new-post" exact component={NewPost}/>
+                <Route exact path="/" render={() => <h1>Home2</h1>}/>
+                switch can be used to only load the first path we find that matches, routes can always be outside switch*/}
+                <Switch>
+                    <Route path="/" exact component={Posts}/>
+                    <Route path="/new-post" exact component={NewPost}/>
+                    <Route path="/:id" component={FullPost}/>
+                </Switch>
+
             </div>
         );
     }
