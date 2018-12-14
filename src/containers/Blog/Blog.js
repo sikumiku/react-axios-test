@@ -34,7 +34,9 @@ class Blog extends Component {
                 <Switch>
                     {this.state.auth ? <Route path="/new-post" exact component={NewPost}/> : null} {/*using guard*/}
                     <Route path="/posts" component={Posts}/>
-                    <Redirect from="/" to="/posts"/>
+                    {/* these both catch all cases that dont match so cant use both at the same time*/}
+                    <Route render={() => <h1>Not found</h1>}/>
+                    {/*<Redirect from="/" to="/posts"/>*/}
                 </Switch>
 
             </div>
