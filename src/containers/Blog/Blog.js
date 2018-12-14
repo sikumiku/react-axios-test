@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import NewPost from './NewPost/NewPost'
 import Posts from './Posts/Posts';
-import FullPost from './FullPost/FullPost';
 
 import './Blog.css';
 
@@ -15,10 +14,10 @@ class Blog extends Component {
                     <nav>
                         <ul>
                             <li><NavLink
-                                to="/"
+                                to="/posts/"
                                 exact
                                 activeClassName="myActive"
-                                activeStyle={{color: '#fa923f', textDecoration: 'underline'}}>Home</NavLink></li>
+                                activeStyle={{color: '#fa923f', textDecoration: 'underline'}}>Posts</NavLink></li>
                             <li><NavLink to={{
                                 pathname: '/new-post', //this.props.match.url + './new-post' this way you can turn it into relative path
                                 hash: '#submit', //allows to jump to a point
@@ -31,9 +30,8 @@ class Blog extends Component {
                 <Route exact path="/" render={() => <h1>Home2</h1>}/>
                 switch can be used to only load the first path we find that matches, routes can always be outside switch*/}
                 <Switch>
-                    <Route path="/" exact component={Posts}/>
                     <Route path="/new-post" exact component={NewPost}/>
-                    <Route path="/:id" component={FullPost}/>
+                    <Route path="/posts" component={Posts}/>
                 </Switch>
 
             </div>
