@@ -6,7 +6,9 @@ import Posts from './Posts/Posts';
 import './Blog.css';
 
 class Blog extends Component {
-
+    state = {
+        auth: false
+    };
     render () {
         return (
             <div className="Blog">
@@ -30,7 +32,7 @@ class Blog extends Component {
                 <Route exact path="/" render={() => <h1>Home2</h1>}/>
                 switch can be used to only load the first path we find that matches, routes can always be outside switch*/}
                 <Switch>
-                    <Route path="/new-post" exact component={NewPost}/>
+                    {this.state.auth ? <Route path="/new-post" exact component={NewPost}/> : null} {/*using guard*/}
                     <Route path="/posts" component={Posts}/>
                     <Redirect from="/" to="/posts"/>
                 </Switch>

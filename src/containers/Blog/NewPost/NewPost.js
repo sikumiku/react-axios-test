@@ -12,6 +12,7 @@ class NewPost extends Component {
     };
 
     componentDidMount() {
+        //can also check for auth status here and use history.replace to reroute
         console.log(this.props);
     }
 
